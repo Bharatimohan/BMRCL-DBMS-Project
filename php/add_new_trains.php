@@ -4,15 +4,13 @@ include("connect.php");
 
 $con = OpenCon();
 
-session_start();
 
 if(isset($_POST['submit']))
 {
-	$t_id = $_POST['t_id'];
-	$r_id = $_POST['r_id'];
+	$t_id = $_POST['train_id'];
+	$r_id = $_POST['route_id'];
 	$a_id = $_SESSION['admin_id'];
-
-	$sql = "INSERT INTO `train`(`train_id`, `admin_id`, `route_id`) VALUES ('$t_id','$a_id','$r_id')";
+	$sql = "INSERT INTO 'train'(`train_id`, `admin_id`, `route_id`) VALUES ('$t_id','$a_id','$r_id')";
 
 	if (mysqli_query($con, $sql)) {
 		header('Location: admin_manage_trains.php');

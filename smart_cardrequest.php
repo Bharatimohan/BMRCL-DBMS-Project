@@ -36,6 +36,8 @@
   </style>
 </head>
 <body >
+	
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="contact_us.php">Contact Us</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,7 +108,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Username *</label>
-									<input type="text" name="username" class="form-control" placeholder="Please enter username" required="required" data-error="Valid username is required.">
+									<input type="text" name="user_id" class="form-control" placeholder="Please enter username" required="required" data-error="Valid username is required.">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>

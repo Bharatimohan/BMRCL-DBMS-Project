@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +70,7 @@
 					<div id="logo-container"></div>
 					<div class="col-sm-8 col-md-5 ">
 						<h3 class="text">Admin Login</h3>
-						<form action="php/admin_home.php" method="POST" id="loginForm">
+						<form action="php/admin_login_check.php" method="POST" id="loginForm">
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 								<input class="form-control" type="email" name='admin_id' placeholder="Admin-Email" required />
@@ -76,7 +81,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-xs-offset-2 col-xs-6">
-									<input type="submit" name="submit" value="Login" class="btn btn-primary"/>
+									<button type="submit" name="submit" class="btn btn-primary">Login</button>
 								</div>
 							</div>
 						</form>
@@ -85,10 +90,10 @@
 					<div id="logo-container"></div>
 					<div class=" col-sm-8 col-md-5 ">
 						<h3> User Login </h3>
-						<form action="user_home.php" method="POST" id="loginForm">
+						<form action="php/card_status.php" id="loginForm" method="POST">
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input class="form-control" type="email" name='user_id' placeholder="User-Email" required />
+								<input class="form-control" type="text" name='user_id' placeholder="UserId" required />
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -96,14 +101,25 @@
 							</div>
 							<div class="form-group">
 								<div class="col-xs-offset-2 col-xs-6">
-									<input type="submit" name="submit" value="Login" class="btn btn-primary"/>
+									<button type="submit" name="submit" class="btn btn-primary">Login</button>
 								</div>
 							</div>
 						</form>
 					</div>
+			<p class="bg-danger">
+				<?php
+
+				if(!empty($_SESSION['error_message']))
+				{
+					echo $_SESSION['error_message'];
+					unset($_SESSION['error_message']);
+				}
+
+				?>
 			</div>
 		</div>
-</div>
+	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

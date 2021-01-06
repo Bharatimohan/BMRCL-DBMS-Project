@@ -8,7 +8,7 @@ $con = OpenCon();
 if(isset($_POST['submit']))
 {
 	$admin_id = $_POST['admin_id'];
-	$password = $_POST['admin_password'];
+	$password = $_POST['password'];
 	$admin = mysqli_query($con,"SELECT admin_id,admin_name FROM admin WHERE admin_email = '$admin_id' AND admin_password = '$password' ");
 	$count = mysqli_num_rows($admin);
 	$row = $admin->fetch_array();

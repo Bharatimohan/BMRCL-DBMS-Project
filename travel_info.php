@@ -1,3 +1,11 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +20,18 @@
   	h2.headertekst {
   text-align: center;
 	}
-	
+	.demo-content{
+          padding: 50px;
+          font-size: 18px;
+          text-align: center;
+          background: #DCEAE5;
+          margin:50px 22em 50px 22em;
+
+        }
+        .demo-content.bg-alt{
+          background: #abb1b8;
+        }
+        
   </style>
 </head>
 <body >
@@ -42,8 +61,83 @@
   </div>
 </nav>
 
+<div class = "demo-content">
+    <form class="form-horizontal" method="POST" action="train_details_page.php">
+      <div class="form-group">
+        <label class="control-label col-xs-2">Route</label>
+        <div class="col-xs-10">
+          <select name="route" class="form-control" id="sel1">
+            <?php
 
+            $sql = "SELECT route_name FROM `route`";
 
+            $routes = mysqli_query($con, $sql);
+
+            while ($rows = mysqli_fetch_assoc($routes)) {
+              foreach ($rows as $key => $value) {
+                echo "<option>".$value."</option>";
+              }
+            }
+            ?>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-2">From</label>
+        <div class="col-xs-10">
+          <select name="from" class="form-control" id="sel1">
+           <?php
+
+            $sql = "SELECT station_name FROM `station`";
+
+            $stations = mysqli_query($con, $sql);
+
+            while ($rows = mysqli_fetch_assoc($stations)) {
+              foreach ($rows as $key => $value) {
+                echo "<option>".$value."</option>";
+              }
+            }
+            ?>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-2">To</label>
+        <div class="col-xs-10">
+          <select name="to" class="form-control" id="sel1">
+           <?php
+
+            $sql = "SELECT station_name FROM `station`";
+
+            $stations = mysqli_query($con, $sql);
+
+            while ($rows = mysqli_fetch_assoc($stations)) {
+              foreach ($rows as $key => $value) {
+                echo "<option>".$value."</option>";
+              }
+            }
+            ?>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+    <p class="bg-danger">
+      <?php
+      if(!empty($_SESSION['error_station']))
+      {
+        echo $_SESSION['error_station'];
+        unset($_SESSION['error_station']);
+      }
+
+      ?>
+    </p>
+    
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

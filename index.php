@@ -11,7 +11,7 @@
  
 </head>
 <body>
-	<marquee><strong><h3>BMRCL Online Management System</h3></strong></marquee>
+	<marquee><strong><h3>Bangalore Metro Rail Corporation Limited Online Management System</h3></strong></marquee>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="contact_us.php">Contact Us</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
 				<img src="images/BMRCL-Logo.jpg" class="img-fluid aboutimg">
 			</div>
 			<div class = "col-lg-6 col-md-6 col-12">
-			<h3 class="py-3">This is a web application which helps users to Top-Up their Smart Card online and also get a fare estimate of the journey.<br><hr>
+			<h3 class="py-3">This is a web application which helps users to Top-Up their Smart Card online and also get a fare estimate of the journey.<br>
 
 			</h3>	
 			<a href=""></a>

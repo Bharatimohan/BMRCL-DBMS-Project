@@ -4,12 +4,11 @@ include("connect.php");
 
 $con = OpenCon();
 
-
 if(isset($_POST['submit']))
 {
-	$username = $_POST['username'];
+	$username = $_POST['user_id'];
 	$password = $_POST['password'];
-	$user = mysqli_query($con,"SELECT S.Card_No, S.Card_Status, C.Fname, C.Lname, S.Balance FROM smartcard S NATURAL JOIN customer C WHERE C.Username = '$username' AND C.Password = '$password' ");
+	$user = mysqli_query($con,"SELECT S.Scard_no, S.card_status, U.Fname, U.Lname, S.balance FROM smartcard S NATURAL JOIN user U WHERE U.user_id = '$username' AND U.password = '$password' ");
 	$row_cnt = mysqli_num_rows($user);
 	$row = $user->fetch_array();
 }
@@ -17,20 +16,20 @@ if(isset($_POST['submit']))
 if($row_cnt > 0)
 {
 	session_start();
-
-	$_SESSION['username'] = $username;
-	$_SESSION['Card_Number'] = $row['Card_No'];
-	$_SESSION['Card_Status'] = $row['Card_Status'];
+	$_SESSION['user_id'] = $username;
+	$_SESSION['Scard_no'] = $row['Scard_no'];
+	$_SESSION['card_status'] = $row['card_status'];
 	$_SESSION['Fname'] = $row['Fname'];
 	$_SESSION['Lname'] = $row['Lname'];
-	$_SESSION['Balance'] = $row['Balance'];
-	header("Location: ../smart_card_homepage.php");
+	$_SESSION['balance'] = $row['balance'];
+	header("Location: ../user_home.php");
 }
 else {
 	session_start();
 	$_SESSION['error_message']="Wrong Username or Password";
-	header("location: ../user_home.php");
+	header("Location: ../login.php");
 }
+
 $user->free();
 
 CloseCon($con);

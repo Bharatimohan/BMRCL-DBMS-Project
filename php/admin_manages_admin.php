@@ -44,7 +44,7 @@ session_start();
       <li class="nav-item">
         <a class="nav-link" href="../index.php">Home</a>
       </li>
-      <li class="active"><a class="nav-link" href="admin_home.php"><strong>Admin</strong></a></li>
+      <li class="active"><a class="nav-link" href="admin_home.php"><strong><?php echo $_SESSION['admin_name']; ?></strong></a></li>
       </ul>
 				<div class="navbar-right margins">
 					<a href="logout_admin.php" class="btn btn-info btn-lg">
@@ -56,7 +56,7 @@ session_start();
 		<section class="my-5"></section>
 		<?php
 
-	$admins = mysqli_query($con,"SELECT admin_id,admin_name,age,gender,admin_email FROM admin WHERE 123");
+	$admins = mysqli_query($con,"SELECT admin_id,admin_name,age,gender,admin_email FROM admin ");
 
 	?>
 

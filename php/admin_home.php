@@ -16,10 +16,10 @@ session_start();
   <style type="text/css">
   	.demo-content{
         	padding: 70px;
-        	font-size: 18px;
+        	font-size: 15px;
         	text-align: center;
         	min-height: 80px;
-        	background: #FFA62F;
+        	background: #D4DB9F;
         	margin-bottom: 50px;
         }
         .demo-content.bg-alt{
@@ -32,7 +32,11 @@ session_start();
         .form-horizontal .control-label{
         	padding-top: 20px;
         }
-        
+        .content {
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+}
 	</style>
 	</head>
 	<body>
@@ -46,6 +50,7 @@ session_start();
       <li class="nav-item">
         <a class="nav-link" href="../index.php">Home</a>
       </li>
+      <li class="active"><a class="nav-link" href="admin_home.php"><strong><?php echo $_SESSION['admin_name']; ?></strong></a></li>
       </ul>
 				<div class="navbar-right margins">
 					<a href="logout_admin.php" class="btn btn-info btn-lg">
@@ -55,24 +60,23 @@ session_start();
 			</div>
 		</nav>
     <section class="my-5"></section>
-		<div class = "container">
-
+	<div class="content">
 		<div class="row">
 			<div class="col-lg-6 col-md-5">
 				<div class="demo-content"><a href="admin_manages_admin.php">Manage Admins</a></div>
 			</div>
 
 			<div class="col-lg-6 col-md-5">
-				<div class="demo-content"><a href="admin_approve_cards.php">Approve Smart Card</a></div>
+				<div class="demo-content"><a href="admin_approve_cards.php">Approve Smartcard</a></div>
 			</div>
 		</div>
-    <section class="my-2"></section>
+    <section class="my-3"></section>
 		<div class="row">
 			<div class="col-lg-6 col-md-5">
 				<div class="demo-content"><a href="admin_manage_trains.php">Manage Trains</a></div>
 			</div>
 			<div class="col-lg-6 col-md-5">
-				<div class="demo-content"><a href="admin_reply_complaints.php">Reply to Complaints</a></div>
+				<div class="demo-content"><a href="../admin_reply_complaints.php">Reply to Complaints</a></div>
 			</div>
 		</div>
 	</div>
